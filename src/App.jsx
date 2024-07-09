@@ -1,12 +1,11 @@
-
+import Home from "./pages/Home";
 
 function App() {
-
-  return (
-    <>
-      
-    </>
-  )
+	return (
+		<div className="font-Poppins">
+      <Home />
+		</div>
+	);
 }
 
-export default App
+export default App;

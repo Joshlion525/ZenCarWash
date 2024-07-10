@@ -8,8 +8,9 @@ export default {
 			},
 			colors: {
 				blackText: "#343434",
-        buttonBg: "#007148",
-        buttonBgHover: "hsl(158, 100%, 32%)",
+				buttonBg: "#007148",
+				buttonBgHover: "hsl(158, 100%, 32%)",
+				cardBackground: "hsla(158, 100%, 22%, 0.08)",
 			},
 		},
 	},

@@ -13,7 +13,7 @@ const Navbar = () => {
 			<div className="flex items-center justify-between md:py-5">
 				<div>
 					<a href="#">
-						<img src={Logo} className="w-[80%] md:w-full" alt="" />
+						<img src={Logo} className="w-full" alt="ZenCarWash" />
 					</a>
 				</div>
 				<div className="hidden md:block">

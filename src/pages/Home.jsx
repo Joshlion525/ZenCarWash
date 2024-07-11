@@ -4,7 +4,10 @@ import One from "../assets/HeroSection1.svg";
 import Two from "../assets/HeroSection2.svg";
 import Three from "../assets/HeroSection3.svg";
 import AboutUs from "./AboutUs";
-import Services from "../components/Services";
+import Services from "./Services";
+import Testimonials from "./Testimonials";
+import Contact from "./Contact";
+import Footer from "../components/Footer";
 
 const Home = () => {
 	return (
@@ -39,19 +42,19 @@ const Home = () => {
 						<div className="flex items-center">
 							<img
 								src={Three}
-								className="w-72 md:w-64"
+								className="w-72 md:w-56"
 								alt="Hero Image 3"
 							/>
 						</div>
 						<div className="flex flex-col gap-2 md:gap-5">
 							<img
 								src={Two}
-								className="w-72 md:w-64"
+								className="w-72 md:w-56"
 								alt="Hero Image 1"
 							/>
 							<img
 								src={One}
-								className="w-72 md:w-64"
+								className="w-72 md:w-56"
 								alt="Hero Image 2"
 							/>
 						</div>
@@ -60,14 +63,17 @@ const Home = () => {
 			</div>
 			<AboutUs />
 			<Services />
-			<div className="flex justify-center my-10">
+			<div className="flex justify-center my-12">
 				<a
-					href=""
-					className="bg-buttonBg text-white px-5 py-3 rounded-3xl font-normal hover:bg-buttonBgHover"
+					href="#"
+					className="bg-buttonBg text-white md:text-lg tracking-widest text-center w-40 md:w-52 py-3 md:py-5 rounded-full hover:bg-buttonBgHover"
 				>
 					Book service
 				</a>
 			</div>
+			<Testimonials />
+			<Contact />
+			<Footer />
 		</div>
 	);
 };

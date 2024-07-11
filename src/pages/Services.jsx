@@ -1,9 +1,9 @@
 import React, { useRef } from "react";
-import { SlArrowLeft, SlArrowRight } from "react-icons/sl";
 import { FaArrowLeft } from "react-icons/fa6";
 import { FaArrowRight } from "react-icons/fa6";
 import ServiceImage2 from "../assets/Rectangle11.svg";
 import CheckLogo from "../assets/Frame.svg";
+import Checkbox from "../assets/Frame2.svg";
 
 const Services = () => {
 	const carouselRef = useRef(null);
@@ -51,7 +51,9 @@ const Services = () => {
 		<div className="relative flex flex-col items-center mt-20 px-5 lg:px-16">
 			<div className="flex justify-between gap-5 items-center w-full mb-10">
 				<div>
-					<h1 className="text-4xl text-buttonBg">Our Services</h1>
+					<h1 className="text-3xl md:text-4xl lg:text-5xl text-buttonBg">
+						Our Services
+					</h1>
 				</div>
 				<div className="flex gap-5">
 					<button
@@ -84,10 +86,10 @@ const Services = () => {
 						/>
 						<div className="flex flex-col gap-4">
 							<div className="flex items-center justify-between">
-								<h3 className="text-2xl font-bold">
+								<h3 className="text-xl md:text-2xl font-bold">
 									{service.title}
 								</h3>
-								<p className="text-buttonBg text-lg font-bold">
+								<p className="text-buttonBg md:text-lg font-bold">
 									{service.price}
 								</p>
 							</div>
@@ -96,7 +98,7 @@ const Services = () => {
 									<img src={CheckLogo} alt="" />
 								</div>
 								<div>
-									<p className="text-lg">Hand Wash</p>
+									<p className="md:text-lg">Hand Wash</p>
 								</div>
 							</div>
 							<div className="flex items-center gap-5">
@@ -104,7 +106,7 @@ const Services = () => {
 									<img src={CheckLogo} alt="" />
 								</div>
 								<div>
-									<p className="text-lg">Tyre Shine</p>
+									<p className="md:text-lg">Tyre Shine</p>
 								</div>
 							</div>
 							<div className="flex items-center gap-5">
@@ -112,7 +114,7 @@ const Services = () => {
 									<img src={CheckLogo} alt="" />
 								</div>
 								<div>
-									<p className="text-lg">
+									<p className="md:text-lg">
 										Wax & Dry Door Shuts{" "}
 										<span className="text-buttonBg">
 											{service.description}
@@ -121,14 +123,14 @@ const Services = () => {
 								</div>
 							</div>
 							<div>
-								<p className="text-buttonBg text-lg">Add-ons</p>
-								<div className="flex items-center gap-5">
-									<input
-										type="checkbox"
-										className="text-buttonBg"
-										checked
-									/>
-									<p className="text-buttonBg text-lg">Polish</p>
+								<p className="text-buttonBg md:text-lg">
+									Add-ons
+								</p>
+								<div className="flex items-center gap-3">
+								    <img src={Checkbox} alt="" />
+									<p className="text-buttonBg md:text-lg">
+										Polish
+									</p>
 								</div>
 							</div>
 						</div>

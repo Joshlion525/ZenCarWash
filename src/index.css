@@ -16,3 +16,9 @@
 	-ms-overflow-style: none;
 	scrollbar-width: none;
 }
+.login {
+	background-image: url(../src/assets/Shape.svg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+}

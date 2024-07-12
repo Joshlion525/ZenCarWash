@@ -15,14 +15,14 @@ const Testimonials = () => {
 			Name: "Matthew Age",
 			Image: Icon,
 			Testimony:
-				"“I cannot praise Mat highly enough for his hard work, passion and enthusiasm in the way he dealt with my car.“",
+				"“I can't commend Mat enough for his dedication, passion, and enthusiasm in handling my car.“",
 		},
 		{
 			id: 3,
 			Name: "John Second",
 			Image: Icon,
 			Testimony:
-				"“I cannot praise Mat highly enough for his hard work, passion and enthusiasm in the way he dealt with my car.“",
+				"“I can't speak highly enough of Mat's hard work, passion, and enthusiasm in taking care of my car.“",
 		},
 	];
 
@@ -33,13 +33,13 @@ const Testimonials = () => {
 					Testimonials
 				</h1>
 			</div>
-			<div className="grid gap-5 lg:gap-20 grid-cols-1 md:grid-cols-3">
+			<div className="grid gap-10 lg:gap-20 grid-cols-1 lg:grid-cols-3">
 				{testimonials.map((testimonial) => (
 					<div
 						key={testimonial.id}
-						className="flex flex-col items-center lg:items-start"
+						className="flex flex-col items-start"
 					>
-						<div className="flex items-center gap-5 mb-5">
+						<div className="flex items-center gap-5 mb-2">
 							<img
 								src={testimonial.Image}
 								className="w-12 h-12 lg:w-16 lg:h-16"

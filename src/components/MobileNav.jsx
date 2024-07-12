@@ -2,11 +2,17 @@ import React from "react";
 import CancelBtn from "../assets/CloseIcon.svg";
 import Instagram from "../assets/instagram.svg";
 import Facebook from "../assets/facebook.svg";
+import { Link } from "react-scroll";
+import { useNavigate } from "react-router-dom";
+
+
 
 const MobileNav = ({ isOpen, setIsOpen }) => {
 	const mobileToggle = () => {
 		setIsOpen(!isOpen);
 	};
+	const navigate = useNavigate();
+
 
 	return (
 		<div>
@@ -33,21 +39,53 @@ const MobileNav = ({ isOpen, setIsOpen }) => {
 				<div className="mt-10">
 					<ul className="flex flex-col gap-3 text-lg">
 						<li>
-							<a href="" className="text-buttonBg">
+							<a
+								href=""
+								className="text-buttonBg"
+								onClick={() => navigate("/")}
+							>
 								Home.
 							</a>
 						</li>
 						<li>
-							<a href="">Our services.</a>
+							<Link
+								to="services"
+								smooth={true}
+								duration={500}
+								className="hover:text-buttonBg cursor-pointer"
+							>
+								Our Services.
+							</Link>
 						</li>
 						<li>
-							<a href="">Testimonials.</a>
+							<Link
+								to="testimonials"
+								smooth={true}
+								duration={500}
+								className="hover:text-buttonBg cursor-pointer"
+							>
+								Testimonials.
+							</Link>
 						</li>
 						<li>
-							<a href="">About us.</a>
+							<Link
+								to="aboutus"
+								smooth={true}
+								duration={500}
+								className="hover:text-buttonBg cursor-pointer"
+							>
+								About us.
+							</Link>
 						</li>
 						<li>
-							<a href="">Get in touch.</a>
+							<Link
+								to="contact"
+								smooth={true}
+								duration={500}
+								className="hover:text-buttonBg cursor-pointer"
+							>
+								Get in touch.
+							</Link>
 						</li>
 					</ul>
 				</div>
@@ -55,6 +93,7 @@ const MobileNav = ({ isOpen, setIsOpen }) => {
 					<a
 						href=""
 						className="bg-buttonBg text-white px-5 py-3 rounded-3xl hover:bg-buttonBgHover"
+						onClick={() => navigate("/bookservice")}
 					>
 						Book service
 					</a>

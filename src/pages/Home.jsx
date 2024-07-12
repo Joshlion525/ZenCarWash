@@ -3,13 +3,18 @@ import Navbar from "../components/Navbar";
 import One from "../assets/HeroSection1.svg";
 import Two from "../assets/HeroSection2.svg";
 import Three from "../assets/HeroSection3.svg";
-import AboutUs from "./AboutUs";
-import Services from "./Services";
-import Testimonials from "./Testimonials";
-import Contact from "./Contact";
+import AboutUs from "../components/AboutUs";
+import Services from "../components/Services";
+import Testimonials from "../components/Testimonials";
+import Contact from "../components/Contact";
 import Footer from "../components/Footer";
+import { Element } from "react-scroll";
+import { useNavigate } from "react-router-dom";
+
 
 const Home = () => {
+	const navigate = useNavigate();
+
 	return (
 		<div>
 			<div className="px-5 lg:px-16">
@@ -27,12 +32,14 @@ const Home = () => {
 							<a
 								href="#"
 								className="bg-buttonBg text-white md:text-lg tracking-widest text-center w-40 md:w-52 py-3 md:py-5 rounded-full hover:bg-buttonBgHover"
+								onClick={() => navigate("/bookservice")}
 							>
 								Book service
 							</a>
 							<a
-								href="#"
+								href=""
 								className="py-3 md:py-5 w-40 md:w-52 md:text-lg tracking-widest text-center rounded-full border-2 border-buttonBg hover:bg-gray-400"
+								onClick={() => navigate("/login")}
 							>
 								Login
 							</a>
@@ -61,18 +68,27 @@ const Home = () => {
 					</div>
 				</div>
 			</div>
-			<AboutUs />
-			<Services />
+			<Element name="aboutus">
+				<AboutUs />
+			</Element>
+			<Element name="services">
+				<Services />
+			</Element>
 			<div className="flex justify-center my-12">
 				<a
 					href="#"
 					className="bg-buttonBg text-white md:text-lg tracking-widest text-center w-40 md:w-52 py-3 md:py-5 rounded-full hover:bg-buttonBgHover"
+					onClick={() => navigate("/bookservice")}
 				>
 					Book service
 				</a>
 			</div>
-			<Testimonials />
-			<Contact />
+			<Element name="testimonials">
+				<Testimonials />
+			</Element>
+			<Element name="contact">
+				<Contact />
+			</Element>
 			<Footer />
 		</div>
 	);

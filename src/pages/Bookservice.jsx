@@ -86,6 +86,27 @@ const Bookservice = () => {
 		console.log("Form Data Submitted: ", formData);
 	};
 
+	const formatDate = (date) => {
+		const options = { day: "numeric", month: "short", year: "numeric" };
+		return new Date(date)
+			.toLocaleDateString("en-US", options)
+			.replace(/,/, "");
+	};
+
+	const formatTime = (time) => {
+		const [hours, minutes] = time.split(":");
+		const hour = parseInt(hours);
+		const period = hour >= 12 ? "PM" : "AM";
+		const formattedHour = hour % 12 || 12;
+		return `${formattedHour}:${minutes} ${period}`;
+	};
+
+	const isValidTime = (time) => {
+		const [hours, minutes] = time.split(":");
+		const hour = parseInt(hours);
+		return hour >= 8 && hour <= 17;
+	};
+
 	const renderForm = () => {
 		switch (currentStep) {
 			case 1:
@@ -459,7 +480,12 @@ const Bookservice = () => {
 									type="time"
 									id="time"
 									value={formData.time}
-									onChange={handleInputChange}
+									onChange={(e) => {
+										const { value } = e.target;
+										if (isValidTime(value)) {
+											handleInputChange(e);
+										}
+									}}
 									className={`w-full rounded-full px-5 py-2 border text-sm md:text-lg ${
 										errors.time
 											? "border-red-500"
@@ -498,7 +524,8 @@ const Bookservice = () => {
 									Date & Time -
 								</h1>
 								<p className="text-buttonBg capitalize">
-									{formData.date} - {formData.time}
+									{formatDate(formData.date)} -{" "}
+									{formatTime(formData.time)}
 								</p>
 							</div>
 						</div>
@@ -568,7 +595,9 @@ const Bookservice = () => {
 							<div className="w-full">
 								<div className="flex gap-3">
 									<img src={MoneyLogo} alt="" />
-									<h1 className="font-semibold text-lg">Price</h1>
+									<h1 className="font-semibold text-lg">
+										Price
+									</h1>
 								</div>
 								<p className="text-buttonBg capitalize">$100</p>
 							</div>
@@ -688,7 +717,11 @@ const Bookservice = () => {
 									currentStep <= 1
 										? "justify-end"
 										: "justify-between"
-								} ${currentStep === 4 ? "flex-col-reverse" : "flex-row"}`}
+								} ${
+									currentStep === 4
+										? "flex-col-reverse"
+										: "flex-row"
+								}`}
 							>
 								<button
 									className={`border border-buttonBg text-buttonBg w-full md:w-52 py-3 text-sm md:text-base rounded-full ${
@@ -701,7 +734,9 @@ const Bookservice = () => {
 									type="submit"
 									className="bg-buttonBg text-white w-full md:w-52 py-3 text-sm md:text-base rounded-full hover:bg-buttonBgHover"
 								>
-									{currentStep < 4 ? "Next Step" : "Proceed to pay"}
+									{currentStep < 4
+										? "Next Step"
+										: "Proceed to pay"}
 								</button>
 							</div>
 						</form>

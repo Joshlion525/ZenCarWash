@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import ConfirmedLogo from "../assets/Group37301.svg";
+import MoneyLogo from "../assets/money.svg";
 
 const Bookservice = () => {
 	const [currentStep, setCurrentStep] = useState(1);
@@ -13,20 +15,18 @@ const Bookservice = () => {
 		vechicleNo: "",
 		date: "",
 		time: "",
+		services: "",
+		vechicleType: "",
 	});
-	const [services, setServices] = useState({
-		service: "",
-	});
-	const [vechicleType, setVechicleType] = useState({
-		carType: "",
-	});
+
 	const [errors, setErrors] = useState({});
 
-	const handleRadioChange = (service) => {
-		setServices({ service });
-	};
-	const handleRadioChangeTwo = (carType) => {
-		setVechicleType({ carType });
+	const handleRadioChange = (e) => {
+		const { name, value } = e.target;
+		setFormData((prevData) => ({
+			...prevData,
+			[name]: value,
+		}));
 	};
 	const handleInputChange = (e) => {
 		const { id, value } = e.target;
@@ -53,12 +53,16 @@ const Bookservice = () => {
 					newErrors.vechicleNo = "Vechicle number is needed";
 				break;
 			case 2:
-				if (!services.service)
-					newErrors.service = "Please select a plan";
+				if (!formData.services)
+					newErrors.services = "Please select a plan";
 				break;
 			case 3:
-				if (!vechicleType.carType)
-					newErrors.carType = "Please pick your vechicle type";
+				if (!formData.vechicleType)
+					newErrors.vechicleType = "Please pick your vechicle type";
+				if (!formData.time)
+					newErrors.time = "Please pick a time for your booking";
+				if (!formData.date)
+					newErrors.date = "Please pick a date for your booking";
 				break;
 			default:
 				break;
@@ -91,7 +95,7 @@ const Bookservice = () => {
 							<h1 className="font-bold text-2xl md:text-3xl">
 								Contact details
 							</h1>
-							<p className="text-base md:text-xl mt-2">
+							<p className="text-base md:text-lg mt-2 text-[#6F6C90]">
 								Please fill out your contact details
 							</p>
 						</div>
@@ -260,28 +264,42 @@ const Bookservice = () => {
 							<h1 className="font-bold text-2xl md:text-3xl">
 								Our Services
 							</h1>
-							<p className="text-base md:text-xl mt-2">
+							<p className="text-base md:text-xl mt-2 text-[#6F6C90]">
 								Please select which service you're interested in
 							</p>
 						</div>
 						<div className="flex flex-col md:flex-row gap-5 mb-5">
 							<div
 								className={`flex justify-center items-center rounded-xl w-full py-7 md:py-12 border cursor-pointer ${
-									services.service === "handwash"
+									formData.services === "handwash"
 										? "border-buttonBg"
 										: "shadow-lg"
 								}`}
-								onClick={() => handleRadioChange("handwash")}
+								onClick={() =>
+									handleRadioChange({
+										target: {
+											name: "services",
+											value: "handwash",
+										},
+									})
+								}
 							>
 								<h1 className="text-lg">Handwash</h1>
 							</div>
 							<div
 								className={`flex justify-center items-center rounded-xl w-full py-7 md:py-12 border cursor-pointer ${
-									services.service === "minivalet"
+									formData.services === "minivalet"
 										? "border-buttonBg"
 										: "shadow-lg"
 								}`}
-								onClick={() => handleRadioChange("minivalet")}
+								onClick={() =>
+									handleRadioChange({
+										target: {
+											name: "services",
+											value: "minivalet",
+										},
+									})
+								}
 							>
 								<h1 className="text-lg">Mini valet</h1>
 							</div>
@@ -289,28 +307,42 @@ const Bookservice = () => {
 						<div className="flex flex-col md:flex-row gap-5 mb-5">
 							<div
 								className={`flex justify-center items-center rounded-xl w-full py-7 md:py-12 border cursor-pointer ${
-									services.service === "fullvalet"
+									formData.services === "fullvalet"
 										? "border-buttonBg"
 										: "shadow-lg"
 								}`}
-								onClick={() => handleRadioChange("fullvalet")}
+								onClick={() =>
+									handleRadioChange({
+										target: {
+											name: "services",
+											value: "fullvalet",
+										},
+									})
+								}
 							>
 								<h1 className="text-lg">Full valet</h1>
 							</div>
 							<div
 								className={`flex justify-center items-center rounded-xl w-full py-7 md:py-12 border cursor-pointer ${
-									services.service === "others"
+									formData.services === "others"
 										? "border-buttonBg"
 										: "shadow-lg"
 								}`}
-								onClick={() => handleRadioChange("others")}
+								onClick={() =>
+									handleRadioChange({
+										target: {
+											name: "services",
+											value: "others",
+										},
+									})
+								}
 							>
 								<h1 className="text-lg">Others</h1>
 							</div>
 						</div>
-						{errors.service && (
+						{errors.services && (
 							<span className="text-red-500 text-sm">
-								{errors.service}
+								{errors.services}
 							</span>
 						)}
 					</div>
@@ -322,28 +354,42 @@ const Bookservice = () => {
 							<h1 className="font-bold text-xl md:text-3xl">
 								Select your vechicle type and date/time
 							</h1>
-							<p className="text-sm md:text-xl mt-2 mb-5">
+							<p className="text-sm md:text-xl mt-2 mb-5 text-[#6F6C90]">
 								Please select your vechicle type and date/time
 							</p>
 						</div>
 						<div className="flex flex-col md:flex-row gap-5 mb-5">
 							<div
 								className={`flex justify-center items-center rounded-xl w-full py-7 md:py-12 border cursor-pointer ${
-									vechicleType.carType === "car"
+									formData.vechicleType === "car"
 										? "border-buttonBg"
 										: "shadow-lg"
 								}`}
-								onClick={() => handleRadioChangeTwo("car")}
+								onClick={() =>
+									handleRadioChange({
+										target: {
+											name: "vechicleType",
+											value: "car",
+										},
+									})
+								}
 							>
 								<h1 className="text-lg">Car</h1>
 							</div>
 							<div
 								className={`flex justify-center items-center rounded-xl w-full py-7 md:py-12 border cursor-pointer ${
-									vechicleType.carType === "suv"
+									formData.vechicleType === "suv"
 										? "border-buttonBg"
 										: "shadow-lg"
 								}`}
-								onClick={() => handleRadioChangeTwo("suv")}
+								onClick={() =>
+									handleRadioChange({
+										target: {
+											name: "vechicleType",
+											value: "suv",
+										},
+									})
+								}
 							>
 								<h1 className="text-lg">SUV</h1>
 							</div>
@@ -351,79 +397,183 @@ const Bookservice = () => {
 						<div className="flex flex-col md:flex-row gap-5 mb-5">
 							<div
 								className={`flex justify-center items-center rounded-xl w-full py-7 md:py-12 border cursor-pointer ${
-									vechicleType.carType === "van/pickup"
+									formData.vechicleType === "van/pickup"
 										? "border-buttonBg"
 										: "shadow-lg"
 								}`}
 								onClick={() =>
-									handleRadioChangeTwo("van/pickup")
+									handleRadioChange({
+										target: {
+											name: "vechicleType",
+											value: "van/pickup",
+										},
+									})
 								}
 							>
 								<h1 className="text-lg">Van/Pickup</h1>
 							</div>
 							<div
 								className={`flex justify-center items-center rounded-xl w-full py-7 md:py-12 border cursor-pointer ${
-									vechicleType.carType === "caravan"
+									formData.vechicleType === "caravan"
 										? "border-buttonBg"
 										: "shadow-lg"
 								}`}
-								onClick={() => handleRadioChangeTwo("caravan")}
+								onClick={() =>
+									handleRadioChange({
+										target: {
+											name: "vechicleType",
+											value: "caravan",
+										},
+									})
+								}
 							>
 								<h1 className="text-lg">Caravan</h1>
 							</div>
 						</div>
-						{errors.carType && (
+						{errors.vechicleType && (
 							<span className="text-red-500 text-sm">
-								{errors.carType}
+								{errors.vechicleType}
 							</span>
 						)}
 						<div className="flex flex-col md:flex-row justify-center gap-5 my-5">
 							<div>
 								<input
 									type="date"
-									name=""
-									id=""
-									placeholder="Select date"
+									id="date"
+									value={formData.date}
+									onChange={handleInputChange}
 									className={`w-full rounded-full px-5 py-2 border text-sm md:text-lg ${
 										errors.time
 											? "border-red-500"
 											: "border-buttonBg"
 									}`}
 								/>
+								{errors.date && (
+									<span className="text-red-500 text-sm">
+										{errors.date}
+									</span>
+								)}
 							</div>
 							<div>
 								<input
 									type="time"
-									name=""
-									id=""
+									id="time"
+									value={formData.time}
+									onChange={handleInputChange}
 									className={`w-full rounded-full px-5 py-2 border text-sm md:text-lg ${
 										errors.time
 											? "border-red-500"
 											: "border-buttonBg"
 									}`}
 								/>
+								{errors.time && (
+									<span className="text-red-500 text-sm">
+										{errors.time}
+									</span>
+								)}
 							</div>
 						</div>
 					</div>
 				);
 			case 4:
 				return (
-					<>
-						<div className="px-5 md:px-12 pt-5">
-							<h1 className="font-bold text-2xl md:text-3xl">
-								Confirmation
-							</h1>
-							<p className="text-base md:text-xl mt-2">
-								Please review and confirm your details
+					<div className="pl-1 md:px-0">
+						<div className="flex flex-col items-center text-center gap-5 px-5 md:px-12 pt-1">
+							<img src={ConfirmedLogo} alt="" className="w-36" />
+							<p className="text-base md:text-2xl font-semibold text-[#170F49]">
+								Proceed to pay for your booking
 							</p>
 						</div>
-						<div className="px-5 md:px-12 pt-5">
-							<p className="text-lg md:text-xl">
-								Your contact and vehicle details will be
-								displayed here for confirmation.
-							</p>
+						<div className="mt-2 flex flex-col md:flex-row">
+							<div className="w-full">
+								<h1 className="font-semibold text-lg">
+									Firstname -
+								</h1>
+								<p className="text-buttonBg capitalize">
+									{formData.firstname}
+								</p>
+							</div>
+							<div className="w-full">
+								<h1 className="font-semibold text-lg">
+									Date & Time -
+								</h1>
+								<p className="text-buttonBg capitalize">
+									{formData.date} - {formData.time}
+								</p>
+							</div>
 						</div>
-					</>
+						<div className="mt-2 flex flex-col md:flex-row">
+							<div className="w-full">
+								<h1 className="font-semibold text-lg">
+									Lastname -
+								</h1>
+								<p className="text-buttonBg capitalize">
+									{formData.lastname}
+								</p>
+							</div>
+							<div className="w-full">
+								<h1 className="font-semibold text-lg">
+									Description -
+								</h1>
+								<p className="text-buttonBg">
+									{formData.description}
+								</p>
+							</div>
+						</div>
+						<div className="mt-2 flex flex-col md:flex-row">
+							<div className="w-full">
+								<h1 className="font-semibold text-lg">
+									Email -
+								</h1>
+								<p className="text-buttonBg">
+									{formData.email}
+								</p>
+							</div>
+							<div className="w-full">
+								<h1 className="font-semibold text-lg">
+									Vechicle type -
+								</h1>
+								<p className="text-buttonBg capitalize">
+									{formData.vechicleType}
+								</p>
+							</div>
+						</div>
+						<div className="mt-2 flex flex-col md:flex-row">
+							<div className="w-full">
+								<h1 className="font-semibold text-lg">
+									Phone number -
+								</h1>
+								<p className="text-buttonBg capitalize">
+									{formData.phonenumber}
+								</p>
+							</div>
+							<div className="w-full">
+								<h1 className="font-semibold text-lg">
+									Vechicle Registration number -
+								</h1>
+								<p className="text-buttonBg capitalize">
+									{formData.vechicleNo}
+								</p>
+							</div>
+						</div>
+						<div className="mt-2 flex flex-col md:flex-row">
+							<div className="w-full">
+								<h1 className="font-semibold text-lg">
+									Service -
+								</h1>
+								<p className="text-buttonBg capitalize">
+									{formData.services}
+								</p>
+							</div>
+							<div className="w-full">
+								<div className="flex gap-3">
+									<img src={MoneyLogo} alt="" />
+									<h1 className="font-semibold text-lg">Price</h1>
+								</div>
+								<p className="text-buttonBg capitalize">$100</p>
+							</div>
+						</div>
+					</div>
 				);
 			default:
 				return null;
@@ -437,20 +587,26 @@ const Bookservice = () => {
 				<div className="flex flex-col items-center my-10 md:my-20">
 					<div className="text-center">
 						<h1 className="font-bold text-3xl lg:text-4xl">
-							Book a Wash
+							{currentStep === 4
+								? "Booking Summary"
+								: "Book a Wash"}
 						</h1>
-						<p className="md:text-xl mt-2">
+						<p
+							className={`md:text-xl mt-2 ${
+								currentStep === 4 ? "hidden" : "block"
+							} `}
+						>
 							Please fill the form below to book a wash for your
 							car
 						</p>
 					</div>
-					<div className="bg-gray-100 rounded-2xl w-full max-w-4xl mt-10 p-5 md:p-10 flex flex-row md:flex-col items-start md:items-center gap-2">
+					<div className="bg-[#F9F9F9] rounded-2xl w-full max-w-4xl mt-10 p-5 md:p-10 flex flex-row md:flex-col items-start md:items-center gap-2">
 						<div className="flex flex-col md:flex-row items-center justify-center gap-2 md:gap-4 md:mb-10 pt-5">
 							<div
 								className={`rounded-full h-12 w-12 flex justify-center items-center ${
 									currentStep >= 1
 										? "bg-buttonBg text-white"
-										: "bg-gray-200"
+										: "bg-[#EFF0F6]"
 								}`}
 							>
 								<p>1</p>
@@ -459,21 +615,21 @@ const Bookservice = () => {
 								className={`hidden md:block w-12 h-[2px] ${
 									currentStep >= 2
 										? "bg-buttonBg"
-										: "bg-gray-200"
+										: "bg-[#EFF0F6]"
 								}`}
 							></span>
 							<span
 								className={`block md:hidden w-[2px] h-12 ${
 									currentStep >= 2
 										? "bg-buttonBg"
-										: "bg-gray-200"
+										: "bg-[#EFF0F6]"
 								}`}
 							></span>
 							<div
 								className={`rounded-full h-12 w-12 flex justify-center items-center ${
 									currentStep >= 2
 										? "bg-buttonBg text-white"
-										: "bg-gray-200"
+										: "bg-[#EFF0F6]"
 								}`}
 							>
 								<p>2</p>
@@ -482,21 +638,21 @@ const Bookservice = () => {
 								className={`hidden md:block w-12 h-[2px] ${
 									currentStep >= 3
 										? "bg-buttonBg"
-										: "bg-gray-200"
+										: "bg-[#EFF0F6]"
 								}`}
 							></span>
 							<span
 								className={`block md:hidden w-[2px] h-12 ${
 									currentStep >= 3
 										? "bg-buttonBg"
-										: "bg-gray-200"
+										: "bg-[#EFF0F6]"
 								}`}
 							></span>
 							<div
 								className={`rounded-full h-12 w-12 flex justify-center items-center ${
 									currentStep >= 3
 										? "bg-buttonBg text-white"
-										: "bg-gray-200"
+										: "bg-[#EFF0F6]"
 								}`}
 							>
 								<p>3</p>
@@ -505,21 +661,21 @@ const Bookservice = () => {
 								className={`hidden md:block w-12 h-[2px] ${
 									currentStep >= 4
 										? "bg-buttonBg"
-										: "bg-gray-200"
+										: "bg-[#EFF0F6]"
 								}`}
 							></span>
 							<span
 								className={`block md:hidden w-[2px] h-12 ${
 									currentStep >= 4
 										? "bg-buttonBg"
-										: "bg-gray-200"
+										: "bg-[#EFF0F6]"
 								}`}
 							></span>
 							<div
 								className={`rounded-full h-12 w-12 flex justify-center items-center ${
 									currentStep >= 4
 										? "bg-buttonBg text-white"
-										: "bg-gray-200"
+										: "bg-[#EFF0F6]"
 								}`}
 							>
 								<p>4</p>
@@ -528,11 +684,11 @@ const Bookservice = () => {
 						<form onSubmit={handleNextStep}>
 							{renderForm()}
 							<div
-								className={`py-5 flex gap-5 ${
+								className={`py-5 flex gap-3 ${
 									currentStep <= 1
 										? "justify-end"
 										: "justify-between"
-								}`}
+								} ${currentStep === 4 ? "flex-col-reverse" : "flex-row"}`}
 							>
 								<button
 									className={`border border-buttonBg text-buttonBg w-full md:w-52 py-3 text-sm md:text-base rounded-full ${
@@ -545,7 +701,7 @@ const Bookservice = () => {
 									type="submit"
 									className="bg-buttonBg text-white w-full md:w-52 py-3 text-sm md:text-base rounded-full hover:bg-buttonBgHover"
 								>
-									{currentStep < 4 ? "Next Step" : "Submit"}
+									{currentStep < 4 ? "Next Step" : "Proceed to pay"}
 								</button>
 							</div>
 						</form>

@@ -13,7 +13,7 @@ const AboutUs = () => {
 				<div className="flex justify-start">
 					<img
 						src={AboutLogo}
-						className="w-36 md:w-64 lg:w-80"
+						className="w-36 md:w-96"
 						alt="About Us Logo"
 					/>
 				</div>

@@ -10,7 +10,7 @@ import Contact from "../components/Contact";
 import Footer from "../components/Footer";
 import { Element } from "react-scroll";
 import { useNavigate } from "react-router-dom";
-
+import { Link as RouterLink } from "react-router-dom";
 
 const Home = () => {
 	const navigate = useNavigate();
@@ -29,20 +29,18 @@ const Home = () => {
 							We provide high-quality car wash services.
 						</p>
 						<div className="flex flex-col md:flex-row items-start md:items-center gap-5">
-							<a
-								href="#"
+							<RouterLink
+								to="/bookservice"
 								className="bg-buttonBg text-white md:text-lg tracking-widest text-center w-40 md:w-52 py-3 md:py-5 rounded-full hover:bg-buttonBgHover"
-								onClick={() => navigate("/bookservice")}
 							>
 								Book service
-							</a>
-							<a
-								href="#"
+							</RouterLink>
+							<RouterLink
+								to="/login"
 								className="py-2 md:py-4 w-40 md:w-52 md:text-lg tracking-widest text-center rounded-full border-2 border-buttonBg hover:bg-gray-400"
-								onClick={() => navigate("/login")}
 							>
 								Login
-							</a>
+							</RouterLink>
 						</div>
 					</div>
 					<div className="flex gap-2 md:gap-5 p-5 backGround">
@@ -75,13 +73,12 @@ const Home = () => {
 				<Services />
 			</Element>
 			<div className="flex justify-center my-12">
-				<a
-					href="#"
+				<RouterLink
+					to="/bookservice"
 					className="bg-buttonBg text-white md:text-lg tracking-widest text-center w-40 md:w-52 py-3 md:py-5 rounded-full hover:bg-buttonBgHover"
-					onClick={() => navigate("/bookservice")}
 				>
 					Book service
-				</a>
+				</RouterLink>
 			</div>
 			<Element name="testimonials">
 				<Testimonials />

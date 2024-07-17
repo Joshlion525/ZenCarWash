@@ -2,17 +2,13 @@ import React from "react";
 import CancelBtn from "../assets/CloseIcon.svg";
 import Instagram from "../assets/instagram.svg";
 import Facebook from "../assets/facebook.svg";
-import { Link } from "react-scroll";
-import { useNavigate } from "react-router-dom";
-
-
+import { Link as ScrollLink } from "react-scroll";
+import { Link as RouterLink } from "react-router-dom";
 
 const MobileNav = ({ isOpen, setIsOpen }) => {
 	const mobileToggle = () => {
 		setIsOpen(!isOpen);
 	};
-	const navigate = useNavigate();
-
 
 	return (
 		<div>
@@ -39,64 +35,59 @@ const MobileNav = ({ isOpen, setIsOpen }) => {
 				<div className="mt-10">
 					<ul className="flex flex-col gap-3 text-lg">
 						<li>
-							<a
-								href="#"
-								className="text-buttonBg"
-								onClick={() => navigate("/")}
-							>
+							<RouterLink to="/" className="text-buttonBg">
 								Home.
-							</a>
+							</RouterLink>
 						</li>
 						<li>
-							<Link
+							<ScrollLink
 								to="services"
 								smooth={true}
 								duration={500}
 								className="hover:text-buttonBg cursor-pointer"
 							>
 								Our Services.
-							</Link>
+							</ScrollLink>
 						</li>
 						<li>
-							<Link
+							<ScrollLink
 								to="testimonials"
 								smooth={true}
 								duration={500}
 								className="hover:text-buttonBg cursor-pointer"
 							>
 								Testimonials.
-							</Link>
+							</ScrollLink>
 						</li>
 						<li>
-							<Link
+							<ScrollLink
 								to="aboutus"
 								smooth={true}
 								duration={500}
 								className="hover:text-buttonBg cursor-pointer"
 							>
 								About us.
-							</Link>
+							</ScrollLink>
 						</li>
 						<li>
-							<Link
+							<ScrollLink
 								to="contact"
 								smooth={true}
 								duration={500}
 								className="hover:text-buttonBg cursor-pointer"
 							>
 								Get in touch.
-							</Link>
+							</ScrollLink>
 						</li>
 					</ul>
 				</div>
 				<div className="mt-10">
-					<a
-						href="#"
+					<RouterLink
+						to="/bookservice"
 						className="bg-buttonBg text-white px-5 py-3 rounded-3xl hover:bg-buttonBgHover"
-						onClick={() => navigate("/bookservice")}
 					>
 						Book service
-					</a>
+					</RouterLink>
 				</div>
 				<div className="mt-14">
 					<h1>socials.</h1>

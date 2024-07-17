@@ -91,7 +91,7 @@ const MobileNav = ({ isOpen, setIsOpen }) => {
 				</div>
 				<div className="mt-10">
 					<a
-						href=""
+						href="#"
 						className="bg-buttonBg text-white px-5 py-3 rounded-3xl hover:bg-buttonBgHover"
 						onClick={() => navigate("/bookservice")}
 					>

@@ -40,7 +40,7 @@ const MobileNav = ({ isOpen, setIsOpen }) => {
 					<ul className="flex flex-col gap-3 text-lg">
 						<li>
 							<a
-								href=""
+								href="#"
 								className="text-buttonBg"
 								onClick={() => navigate("/")}
 							>

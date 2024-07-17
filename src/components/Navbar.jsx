@@ -16,7 +16,7 @@ const Navbar = () => {
 		<div>
 			<div className="flex items-center justify-between md:py-5">
 				<div>
-					<a href="" onClick={() => navigate("/")}>
+					<a href="#" onClick={() => navigate("/")}>
 						<img src={Logo} className="w-full" alt="ZenCarWash" />
 					</a>
 				</div>
@@ -24,7 +24,7 @@ const Navbar = () => {
 					<ul className="flex gap-5 lg:gap-10 text-lg font-medium text-blackText tracking-widest">
 						<li>
 							<a
-								href=""
+								href="#"
 								className="hover:text-buttonBg"
 								onClick={() => navigate("/")}
 							>

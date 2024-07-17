@@ -77,7 +77,7 @@ const Services = () => {
 				{services.map((service) => (
 					<div
 						key={service.id}
-						className="min-w-[300px] bg-cardBackground p-4 rounded-3xl shadow-lg flex-shrink-0"
+						className="min-w-[300px] w-full md:w-[400px]  bg-cardBackground p-4 rounded-3xl shadow-lg flex-shrink-0"
 					>
 						<img
 							src={service.image}

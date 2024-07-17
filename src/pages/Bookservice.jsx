@@ -20,6 +20,11 @@ const Bookservice = () => {
 	});
 
 	const [errors, setErrors] = useState({});
+	const today = new Date().toISOString().split("T")[0];
+
+	const handlePreviousStep = () => {
+		setCurrentStep((prevStep) => prevStep - 1);
+	};
 
 	const handleRadioChange = (e) => {
 		const { name, value } = e.target;
@@ -461,6 +466,7 @@ const Bookservice = () => {
 								<input
 									type="date"
 									id="date"
+									min={today}
 									value={formData.date}
 									onChange={handleInputChange}
 									className={`w-full rounded-full px-5 py-2 border text-sm md:text-lg ${
@@ -521,21 +527,21 @@ const Bookservice = () => {
 							</div>
 							<div className="w-full">
 								<h1 className="font-semibold text-lg">
-									Date & Time -
+									Lastname -
 								</h1>
 								<p className="text-buttonBg capitalize">
-									{formatDate(formData.date)} -{" "}
-									{formatTime(formData.time)}
+									{formData.lastname}
 								</p>
 							</div>
 						</div>
 						<div className="mt-2 flex flex-col md:flex-row">
 							<div className="w-full">
 								<h1 className="font-semibold text-lg">
-									Lastname -
+									Date & Time -
 								</h1>
 								<p className="text-buttonBg capitalize">
-									{formData.lastname}
+									{formatDate(formData.date)} -{" "}
+									{formatTime(formData.time)}
 								</p>
 							</div>
 							<div className="w-full">
@@ -717,16 +723,13 @@ const Bookservice = () => {
 									currentStep <= 1
 										? "justify-end"
 										: "justify-between"
-								} ${
-									currentStep === 4
-										? "flex-col-reverse"
-										: "flex-row"
 								}`}
 							>
 								<button
 									className={`border border-buttonBg text-buttonBg w-full md:w-52 py-3 text-sm md:text-base rounded-full ${
 										currentStep > 1 ? "block" : "hidden"
 									}`}
+									onClick={handlePreviousStep}
 								>
 									Previous
 								</button>

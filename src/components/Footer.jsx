@@ -2,7 +2,7 @@ import React from "react";
 import FooterLogo from "../assets/LogoFooter.svg";
 import LogoInst from "../assets/LogoInstagram.svg";
 import LogoFace from "../assets/LogoFacebook.svg";
-import { Link } from "react-scroll";
+import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 const Footer = () => {
@@ -24,34 +24,13 @@ const Footer = () => {
 								</a>
 							</li>
 							<li>
-								<Link
-									to="aboutus"
-									smooth={true}
-									duration={500}
-									className="cursor-pointer"
-								>
-									About us
-								</Link>
+								<a className="cursor-pointer">About us</a>
 							</li>
 							<li>
-								<Link
-									to="services"
-									smooth={true}
-									duration={500}
-									className="cursor-pointer"
-								>
-									Our Services
-								</Link>
+								<a className="cursor-pointer">Our Services</a>
 							</li>
 							<li>
-								<Link
-									to="contact"
-									smooth={true}
-									duration={500}
-									className=" cursor-pointer"
-								>
-									Contact us
-								</Link>
+								<a className=" cursor-pointer">Contact us</a>
 							</li>
 						</ul>
 					</div>
@@ -59,14 +38,10 @@ const Footer = () => {
 						<h1 className="font-bold text-2xl mb-5">Account</h1>
 						<ul className="flex flex-col gap-3 text-lg font-extralight">
 							<li>
-								<a href="" onClick={() => navigate("/login")}>
-									Log in
-								</a>
+								<Link to={"/login"}>Log in</Link>
 							</li>
 							<li>
-								<a href="" onClick={() => navigate("/signup")}>
-									Sign up
-								</a>
+								<Link to={"/signup"}>Sign up</Link>
 							</li>
 						</ul>
 					</div>

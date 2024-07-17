@@ -37,7 +37,7 @@ const Home = () => {
 								Book service
 							</a>
 							<a
-								href=""
+								href="#"
 								className="py-2 md:py-4 w-40 md:w-52 md:text-lg tracking-widest text-center rounded-full border-2 border-buttonBg hover:bg-gray-400"
 								onClick={() => navigate("/login")}
 							>

@@ -1,6 +1,7 @@
 import React from "react";
 import { FaArrowLeft } from "react-icons/fa6";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Login = () => {
 	const navigate = useNavigate();
@@ -56,9 +57,9 @@ const Login = () => {
 						</a>
 						<p>
 							Don't have an account?{" "}
-							<a href="" className="text-buttonBg" onClick={() => navigate("/signup")}>
+							<Link to={"/signup"} className="text-buttonBg">
 								Sign up
-							</a>
+							</Link>
 						</p>
 					</div>
 					<div>

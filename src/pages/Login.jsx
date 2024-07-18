@@ -65,7 +65,8 @@ const Login = () => {
 					<div>
 						<button
 							type="submit"
-							className="bg-buttonBg w-full rounded-full text-white py-3"
+							disabled
+							className="bg-buttonBg bg-gray-300 w-full rounded-full text-white py-3"
 						>
 							Login
 						</button>

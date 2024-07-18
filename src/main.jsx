@@ -6,6 +6,8 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Login from "./pages/Login.jsx";
 import Signup from "./pages/Signup.jsx";
 import Bookservice from "./pages/Bookservice.jsx";
+import Profile from "./pages/Profile.jsx";
+import { ProfileProvider } from "./context/ProfileDetailsContext.jsx";
 
 const router = createBrowserRouter([
 	{
@@ -24,10 +26,16 @@ const router = createBrowserRouter([
 		path: "/bookservice",
 		element: <Bookservice />,
 	},
+	{
+		path: "/profile",
+		element: <Profile />,
+	},
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
 	<React.StrictMode>
-		<RouterProvider router={router} />
+		<ProfileProvider>
+			<RouterProvider router={router} />
+		</ProfileProvider>
 	</React.StrictMode>
 );

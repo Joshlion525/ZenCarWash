@@ -45,12 +45,13 @@ const Profile = () => {
 						</div>
 						<div className="flex flex-col gap-2 border p-5 rounded-xl border-buttonBg mb-3">
 							<h1 className="text-base lg:text-xl font-semibold">
-								Booking history:
+								Your booking history:
 							</h1>
 							<div className="overflow-x-auto">
 								<table className="text-center md:text-left w-full">
 									<thead>
 										<tr className="border-b border-buttonBg text-sm lg:text-lg">
+											<th>No</th>
 											<th className="py-2 px-3 lg:py-3">
 												Services
 											</th>
@@ -60,11 +61,20 @@ const Profile = () => {
 									</thead>
 									<tbody className="text-buttonBg">
 										<tr className="border-b border-buttonBg text-xs lg:text-lg italic">
+											<td>1</td>
 											<td className="py-2 px-3 lg:py-3">
 												Valet
 											</td>
 											<td>$100</td>
 											<td>12 Jul, 2024 - 10:00am</td>
+										</tr>
+										<tr className="border-b border-buttonBg text-xs lg:text-lg italic">
+											<td>2</td>
+											<td className="py-2 px-3 lg:py-3">
+												Mini-Valet
+											</td>
+											<td>$50</td>
+											<td>2 Jul, 2024 - 3:30pm</td>
 										</tr>
 									</tbody>
 								</table>

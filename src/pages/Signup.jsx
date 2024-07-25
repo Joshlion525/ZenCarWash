@@ -123,31 +123,6 @@ const Signup = () => {
 					</div>
 					<div className="flex flex-col gap-2">
 						<label
-							htmlFor="email"
-							className="text-gray-500 text-xl font-medium"
-						>
-							Your role
-						</label>
-						<select
-							name=""
-							id="role"
-							value={userDetails.role}
-							onChange={handleInput}
-							className={`w-full rounded-full px-5 py-3 border text-lg ${
-								error.password
-									? "border-red-500"
-									: "border-buttonBg"
-							}`}
-						>
-							<option value="admin">Admin</option>
-							<option value="user">User</option>
-						</select>
-						{error.role && (
-							<p className="text-red-500 text-sm">{error.role}</p>
-						)}
-					</div>
-					<div className="flex flex-col gap-2">
-						<label
 							htmlFor="password"
 							className="text-gray-500 text-xl font-medium"
 						>
@@ -168,6 +143,35 @@ const Signup = () => {
 						{error.password && (
 							<p className="text-red-500 text-sm">
 								{error.password}
+							</p>
+						)}
+					</div>
+					<div className="flex flex-col gap-2">
+						<label
+							htmlFor="role"
+							className="text-gray-500 text-xl font-medium"
+						>
+							Your role
+						</label>
+						<select
+							id="role"
+							value={userDetails.role}
+							onChange={handleInput}
+							className={`w-full rounded-full px-5 py-3 text-lg border block ${
+								error.role
+									? "border-red-500"
+									: "border-buttonBg"
+							}`}
+						>
+							<option value="" disabled>
+								Select your role
+							</option>
+							<option value="admin">Admin</option>
+							<option value="user">User</option>
+						</select>
+						{error.role && (
+							<p className="text-red-500 text-sm mt-1">
+								{error.role}
 							</p>
 						)}
 					</div>

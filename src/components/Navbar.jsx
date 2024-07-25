@@ -80,7 +80,7 @@ const Navbar = () => {
 							<MdKeyboardArrowDown className="font-bold text-lg" />
 						</li>
 						{isDropdownOpen && (
-							<div className="absolute right-20 mt-44 w-fit bg-white rounded-md shadow-lg z-50 py-3 px-5 border border-buttonBg">
+							<div className="absolute right-[5%] mt-44 w-fit bg-white rounded-md shadow-lg z-50 py-3 px-5 border border-buttonBg">
 								<div className="flex justify-end mb-2">
 									<RxCross2
 										className="cursor-pointer font-bold text-red-500"
@@ -92,7 +92,7 @@ const Navbar = () => {
 										<IoPerson className="text-buttonBg text-4xl cursor-pointer" />
 									</div>
 									<div>
-										<h1 className="italic text-base capitalize">
+										<h1 className="italic text-sm capitalize">
 											{userDetails.name}
 										</h1>
 										<RouterLink to={"/profile"} className="italic text-buttonBg text-sm">

@@ -11,9 +11,11 @@ import Footer from "../components/Footer";
 import { Element } from "react-scroll";
 import { useNavigate } from "react-router-dom";
 import { Link as RouterLink } from "react-router-dom";
+import { useProfile } from "../context/ProfileDetailsContext";
 
 const Home = () => {
 	const navigate = useNavigate();
+	const { userDetails } = useProfile();
 
 	return (
 		<div>
@@ -37,7 +39,11 @@ const Home = () => {
 							</RouterLink>
 							<RouterLink
 								to="/login"
-								className="py-2 md:py-4 w-40 md:w-52 md:text-lg tracking-widest text-center rounded-full border-2 border-buttonBg hover:bg-gray-400"
+								className={`py-2 md:py-4 w-40 md:w-52 md:text-lg tracking-widest text-center rounded-full border-2 border-buttonBg hover:bg-gray-400 ${
+									userDetails && userDetails.name
+										? "hidden"
+										: "block"
+								}`}
 							>
 								Login
 							</RouterLink>

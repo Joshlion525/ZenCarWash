@@ -3,7 +3,7 @@ import Logo from "../assets/Logo.svg";
 import MobileMenu from "../assets/Menu.svg";
 import MobileNav from "./MobileNav";
 import { Link as ScrollLink } from "react-scroll";
-import { Link, Link as RouterLink } from "react-router-dom";
+import { Link as RouterLink } from "react-router-dom";
 import { IoPerson } from "react-icons/io5";
 import { MdKeyboardArrowDown } from "react-icons/md";
 import { useProfile } from "../context/ProfileDetailsContext";

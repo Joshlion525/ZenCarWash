@@ -45,7 +45,13 @@ const Signup = () => {
 		if (validate()) {
 			console.log("Form submitted successfully", userDetails);
 			toast.success("Account created");
-			navigate("/profile");
+			 setTimeout(() => {
+					if (userDetails.role === "admin") {
+						navigate("/dashboard");
+					} else if (userDetails.role === "user") {
+						navigate("/profile");
+					}
+				}, 1000);
 		} else {
 			console.log("Validation failed");
 		}

@@ -476,11 +476,6 @@ const Bookservice = () => {
 											? "border-red-500"
 											: "border-buttonBg"
 									}`}
-									style={{
-										appearance: "none",
-										WebkitAppearance: "none",
-										MozAppearance: "none",
-									}}
 								/>
 								{errors.date && (
 									<span className="text-red-500 text-sm">
@@ -504,11 +499,6 @@ const Bookservice = () => {
 											? "border-red-500"
 											: "border-buttonBg"
 									}`}
-									style={{
-										appearance: "none",
-										WebkitAppearance: "none",
-										MozAppearance: "none",
-									}}
 								/>
 								{errors.time && (
 									<span className="text-red-500 text-sm">

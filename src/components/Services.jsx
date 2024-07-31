@@ -72,7 +72,7 @@ const Services = () => {
 			</div>
 			<div
 				ref={carouselRef}
-				className="flex gap-5 space-x-4 overflow-x-auto scrollbar-hide w-full"
+				className="flex gap-5 space-x-4 overflow-x-auto no-scrollbar w-full"
 			>
 				{services.map((service) => (
 					<div

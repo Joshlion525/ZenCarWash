@@ -3,6 +3,8 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import ConfirmedLogo from "../assets/Group37301.svg";
 import MoneyLogo from "../assets/money.svg";
+import { Input } from "@/components/ui/input";
+
 
 const Bookservice = () => {
 	const [currentStep, setCurrentStep] = useState(1);
@@ -463,7 +465,7 @@ const Bookservice = () => {
 						)}
 						<div className="flex flex-col md:flex-row justify-center gap-5 my-5">
 							<div>
-								<input
+								<Input
 									type="date"
 									id="date"
 									min={today}
@@ -487,7 +489,7 @@ const Bookservice = () => {
 								)}
 							</div>
 							<div>
-								<input
+								<Input
 									type="time"
 									id="time"
 									value={formData.time}
